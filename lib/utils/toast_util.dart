@@ -1,7 +1,7 @@
-///
-/// [Author] lg (https://github.com/lemos1235)
-/// [Date] 2022/8/22
-///
+//
+// [Author] lg (https://github.com/lemos1235)
+// [Date] 2022/8/22
+//
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 

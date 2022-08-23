@@ -1,11 +1,13 @@
-///
-/// [Author] lg (https://github.com/lemos1235)
-/// [Date] 2022/8/22
-///
+//
+// [Author] lg (https://github.com/lemos1235)
+// [Date] 2022/8/22
+//
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:icoffee/app_routes.dart';
+import 'package:icoffee/app_theme.dart';
+import 'package:icoffee/constants/constants.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -18,17 +20,19 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AnnotatedRegion<SystemUiOverlayStyle>(
-      value: SystemUiOverlayStyle.dark,
+      value: SystemUiOverlayStyle.dark.copyWith(
+        statusBarColor: AppTheme.bgWhite,
+      ),
       child: MaterialApp.router(
         routeInformationProvider: appRouter.routeInformationProvider,
         routeInformationParser: appRouter.routeInformationParser,
         routerDelegate: appRouter.routerDelegate,
-        title: '享咖小记',
+        title: Constants.appName,
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
             platform: TargetPlatform.iOS,
-            primaryColor: Colors.green,
-            primarySwatch: Colors.green,
+            primaryColor: AppTheme.primary,
+            primarySwatch: Colors.brown,
             cardTheme: const CardTheme(shadowColor: Color(0x80DCE7FA)),
             appBarTheme: const AppBarTheme(
                 elevation: 2,
