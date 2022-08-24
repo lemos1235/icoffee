@@ -25,12 +25,12 @@ class _HomePageState extends State<HomePage> {
           ),
           body: Column(
             children: [
-              _buildHeader(),
+              _header(),
               Expanded(
                 child: TabBarView(
                   children: [
                     _drinkLogs(),
-                    _emptyColdBrewLogs(),
+                    _emptyContent(),
                   ],
                 ),
               ),
@@ -39,7 +39,7 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Widget _buildHeader() {
+  Widget _header() {
     return BrnShadowCard(
       child: Column(
         children: <Widget>[
@@ -159,12 +159,9 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Widget _emptyColdBrewLogs() {
-    return Column(
-      children: [
-        Image.asset("assets/images/home_bg-2.png"),
-        Text("开始您的品咖之旅吧~"),
-      ],
+  Widget _emptyContent() {
+    return Center(
+      child: Text("开始您的品咖之旅吧~"),
     );
   }
 }

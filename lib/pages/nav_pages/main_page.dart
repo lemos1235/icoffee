@@ -91,7 +91,7 @@ class _MainPageState extends State<MainPage> {
         tiles[0],
         tiles[1],
         SizedBox(
-          width: 40,
+          width: 70,
         ),
         tiles[2],
         tiles[3],

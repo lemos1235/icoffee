@@ -12,9 +12,9 @@ class GFCard extends StatefulWidget {
     this.onPressed,
     this.onMore,
     required this.content,
-    this.contentPadding =
-        const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
-    this.bottomPadding = const EdgeInsets.only(left: 10, right: 10, bottom: 10),
+    this.titlePadding = const EdgeInsets.only(left: 15, right: 15, top: 14, bottom: 14),
+    this.contentPadding = const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
+    this.bottomPadding = const EdgeInsets.only(left: 10, right: 10, top: 0, bottom: 10),
     this.bottom,
   }) : super(key: key);
 
@@ -28,6 +28,7 @@ class GFCard extends StatefulWidget {
 
   final Widget? bottom;
 
+  final EdgeInsets titlePadding;
   final EdgeInsets contentPadding;
   final EdgeInsets bottomPadding;
 
@@ -41,8 +42,7 @@ class _GFCardState extends State<GFCard> with SingleTickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
-    _controller =
-        AnimationController(vsync: this, duration: Duration(milliseconds: 100));
+    _controller = AnimationController(vsync: this, duration: Duration(milliseconds: 100));
   }
 
   @override
@@ -65,18 +65,18 @@ class _GFCardState extends State<GFCard> with SingleTickerProviderStateMixin {
       },
       behavior: HitTestBehavior.translucent,
       child: ScaleTransition(
-        scale: Tween<double>(begin: 1.0, end: 0.96).animate(
-            CurvedAnimation(parent: _controller, curve: Curves.easeInOut)),
+        scale: Tween<double>(begin: 1.0, end: 0.96)
+            .animate(CurvedAnimation(parent: _controller, curve: Curves.easeInOut)),
         child: BrnShadowCard(
           color: Colors.white,
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
               Padding(
-                padding:
-                    const EdgeInsets.symmetric(vertical: 8.0, horizontal: 15),
+                padding: widget.titlePadding,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     if (widget.title != null) widget.title!,
                     if (widget.onMore != null)
@@ -88,7 +88,11 @@ class _GFCardState extends State<GFCard> with SingleTickerProviderStateMixin {
                   ],
                 ),
               ),
-              Divider(color: Colors.grey.shade300, thickness: 0.5),
+              Divider(
+                color: Colors.grey.shade200,
+                thickness: 0.5,
+                height: 1,
+              ),
               Padding(
                 padding: widget.contentPadding,
                 child: widget.content,
