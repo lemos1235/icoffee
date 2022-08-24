@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:icoffee/app_theme.dart';
+import 'package:icoffee/constants/app_colors.dart';
 
+/// 登录页
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
 
@@ -13,19 +14,20 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     final MediaQueryData mediaQuery = MediaQuery.of(context);
     return Scaffold(
-      backgroundColor: AppTheme.bgWhite,
       body: Container(
         alignment: const Alignment(0.0, 0.8),
         decoration: const BoxDecoration(
-            image: DecorationImage(
-          image: AssetImage("assets/images/login-bg.png"),
-          fit: BoxFit.cover,
-        )),
+          image: DecorationImage(
+            image: AssetImage("assets/images/login_bg.png"),
+            fit: BoxFit.cover,
+          ),
+        ),
         child: GestureDetector(
           behavior: HitTestBehavior.translucent,
           child: Container(
               alignment: Alignment.center,
-              margin: EdgeInsets.symmetric(horizontal: mediaQuery.size.width * 0.1),
+              margin:
+                  EdgeInsets.symmetric(horizontal: mediaQuery.size.width * 0.1),
               height: 50,
               decoration: BoxDecoration(
                 color: Colors.black,

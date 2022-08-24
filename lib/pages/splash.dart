@@ -5,7 +5,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:icoffee/app_routes.dart';
+import 'package:icoffee/constants/app_colors.dart';
 
+/// 闪屏页
 class SplashPage extends StatefulWidget {
   const SplashPage({Key? key}) : super(key: key);
 
@@ -29,6 +31,8 @@ class _SplashPageState extends State<SplashPage> {
 
   @override
   Widget build(BuildContext context) {
-    return const SizedBox.shrink();
+    return Container(
+      color: AppColors.bgWhite,
+    );
   }
 }

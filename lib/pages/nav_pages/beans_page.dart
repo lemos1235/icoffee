@@ -4,6 +4,7 @@
 //
 import 'package:flutter/material.dart';
 
+/// 咖啡豆页
 class CoffeeBeansPage extends StatefulWidget {
   const CoffeeBeansPage({Key? key}) : super(key: key);
 
