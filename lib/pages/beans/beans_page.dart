@@ -4,6 +4,8 @@
 //
 import 'package:bruno/bruno.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:icoffee/app_routes.dart';
 import 'package:icoffee/constants/app_colors.dart';
 import 'package:icoffee/widgets/gf_brn_rich_info_grid.dart';
 import 'package:icoffee/widgets/gf_card.dart';
@@ -24,7 +26,13 @@ class _CoffeeBeansPageState extends State<CoffeeBeansPage> {
       appBar: BrnAppBar(
         automaticallyImplyLeading: false,
         title: "咖啡豆",
-        actions: Icon(Icons.add, size: 24, color: AppColors.deactivatedText),
+        actions: GestureDetector(
+          behavior: HitTestBehavior.translucent,
+          onTap: () {
+            GoRouter.of(context).pushNamed(AppRoutes.newCoffeeBeans);
+          },
+          child: Icon(Icons.add, size: 24, color: AppColors.deactivatedText),
+        ),
       ),
       body: Column(
         children: [

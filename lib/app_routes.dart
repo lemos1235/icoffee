@@ -4,9 +4,9 @@
 //
 import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
-import 'package:icoffee/main.dart';
+import 'package:icoffee/pages/beans/new_beans_page.dart';
 import 'package:icoffee/pages/login_page.dart';
-import 'package:icoffee/pages/nav_pages/main_page.dart';
+import 'package:icoffee/pages/main_page.dart';
 import 'package:icoffee/pages/splash.dart';
 
 abstract class AppRoutes {
@@ -15,6 +15,8 @@ abstract class AppRoutes {
   static const home = '/';
 
   static const login = '/login';
+
+  static const newCoffeeBeans = '/newCoffeeBeans';
 }
 
 final GoRouter appRouter = GoRouter(
@@ -34,6 +36,11 @@ final GoRouter appRouter = GoRouter(
       path: AppRoutes.login,
       name: AppRoutes.login,
       builder: (BuildContext context, GoRouterState state) => const LoginPage(),
+    ),
+    GoRoute(
+      path: AppRoutes.newCoffeeBeans,
+      name: AppRoutes.newCoffeeBeans,
+      builder: (BuildContext context, GoRouterState state) => const NewCoffeeBeansPage(),
     ),
   ],
 );

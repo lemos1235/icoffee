@@ -2,10 +2,10 @@ import 'package:collection/collection.dart';
 import 'package:flukit/flukit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:icoffee/pages/nav_pages/beans_page.dart';
-import 'package:icoffee/pages/nav_pages/home_page.dart';
-import 'package:icoffee/pages/nav_pages/statistics_page.dart';
-import 'package:icoffee/pages/nav_pages/user_page.dart';
+import 'package:icoffee/pages/beans/beans_page.dart';
+import 'package:icoffee/pages/home/home_page.dart';
+import 'package:icoffee/pages/statistics/statistics_page.dart';
+import 'package:icoffee/pages/user/user_page.dart';
 import 'package:icoffee/widgets/gf_bottom_app_bar.dart';
 
 /// 主页
