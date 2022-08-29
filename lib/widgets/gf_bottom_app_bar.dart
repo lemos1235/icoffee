@@ -5,6 +5,7 @@
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
+import 'package:icoffee/widgets/gf_feedback.dart';
 
 class GFBottomAppBar extends StatefulWidget {
   const GFBottomAppBar({Key? key, required this.children}) : super(key: key);
@@ -34,13 +35,17 @@ class GFBottomNavigationTile extends StatelessWidget {
   const GFBottomNavigationTile(
     this.icon,
     this.label, {
-    this.selected = false, this.onTap,
+    this.selected = false,
+    this.onTap,
+    this.enableFeedback,
   });
 
   final Icon icon;
   final String label;
 
   final bool selected;
+
+  final bool? enableFeedback;
 
   final VoidCallback? onTap;
 
@@ -52,7 +57,7 @@ class GFBottomNavigationTile extends StatelessWidget {
     Color currentColor = selected ? themeData.colorScheme.primary : themeData.unselectedWidgetColor;
     Widget result = GestureDetector(
       behavior: HitTestBehavior.translucent,
-      onTap: onTap,
+      onTap: (enableFeedback ?? false) ? GFFeedback.wrapForTap(onTap, context) : onTap,
       child: Padding(
         padding: EdgeInsets.only(top: 9, bottom: 9),
         child: Column(
@@ -79,9 +84,9 @@ class GFBottomNavigationTile extends StatelessWidget {
                 heightFactor: 1.0,
                 child: Container(
                     child: Text(
-                      label,
-                      style: TextStyle(fontSize: 10, color: currentColor),
-                    )),
+                  label,
+                  style: TextStyle(fontSize: 10, color: currentColor),
+                )),
               ),
             ),
           ],
@@ -93,7 +98,6 @@ class GFBottomNavigationTile extends StatelessWidget {
 }
 
 class GFBottomNavigationTileItem {
-
   final Icon icon;
   final String label;
 
