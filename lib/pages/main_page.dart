@@ -84,6 +84,7 @@ class _MainPageState extends State<MainPage> {
         onTap: () {
           navigationTapped(index);
         },
+        enableFeedback: true,
       );
     }).toList();
     return GFBottomAppBar(

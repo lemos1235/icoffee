@@ -81,7 +81,7 @@ class _CoffeeBeansPageState extends State<CoffeeBeansPage> {
         itemBuilder: (context, index) {
           return GFCard(
             onPressed: () {
-              print('2233');
+              GoRouter.of(context).pushNamed(AppRoutes.beansDetail);
             },
             onMore: () {
               print('more');
