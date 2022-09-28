@@ -15,7 +15,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context) { 
     return DefaultTabController(
       length: 2,
       child: Scaffold(

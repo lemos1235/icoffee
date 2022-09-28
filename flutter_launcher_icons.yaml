@@ -1,6 +1,5 @@
-# flutter pub run flutter_launcher_icons:main
+# flutter pub run flutter_launcher_icons_maker:main
 flutter_icons:
   android: true
   ios: true
-  remove_alpha_ios: true
-  image_path: "assets/app-icon2.png"
+  image_path: "assets/app_icon.png"

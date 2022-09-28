@@ -24,7 +24,7 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: SystemUiOverlayStyle.dark.copyWith(
-        statusBarColor: AppColors.bgWhite.withOpacity(0.8),
+        statusBarColor: Colors.white,
       ),
       child: MaterialApp.router(
         routeInformationProvider: appRouter.routeInformationProvider,
