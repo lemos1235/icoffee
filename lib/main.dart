@@ -23,7 +23,7 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AnnotatedRegion<SystemUiOverlayStyle>(
-      value: SystemUiOverlayStyle.dark.copyWith(
+        value: SystemUiOverlayStyle.dark.copyWith(
         statusBarColor: Colors.white,
       ),
       child: MaterialApp.router(
@@ -38,18 +38,6 @@ class App extends StatelessWidget {
           scaffoldBackgroundColor: AppColors.bgWhite,
           primarySwatch: AppColors.brown,
           cardTheme: const CardTheme(shadowColor: Color(0x80DCE7FA)),
-          appBarTheme: const AppBarTheme(
-              elevation: 2,
-              systemOverlayStyle: SystemUiOverlayStyle.dark,
-              backgroundColor: Colors.white,
-              foregroundColor: Colors.black,
-              iconTheme: IconThemeData(
-                size: 20,
-              ),
-              titleTextStyle: TextStyle(
-                fontSize: 18,
-                color: Colors.black,
-              )),
           tabBarTheme: const TabBarTheme(
             labelColor: Colors.black,
             indicatorSize: TabBarIndicatorSize.label,

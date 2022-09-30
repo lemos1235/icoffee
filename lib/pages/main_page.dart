@@ -1,5 +1,4 @@
 import 'package:collection/collection.dart';
-import 'package:flukit/flukit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:icoffee/pages/beans/beans_page.dart';
@@ -16,29 +15,35 @@ class MainPage extends StatefulWidget {
   State<MainPage> createState() => _MainPageState();
 }
 
-class _MainPageState extends State<MainPage> {
+class _MainPageState extends State<MainPage> with SingleTickerProviderStateMixin {
+  late AnimationController _controller;
+
   PageController? _pageController;
-  int currentPage = 0;
+
+  int _currentPage = 0;
+
+  final List<Widget> _pages = [HomePage(), StatisticsPage(), CoffeeBeansPage(), UserPage()];
 
   @override
   void initState() {
-    _pageController = PageController(initialPage: currentPage);
+    _pageController = PageController(initialPage: _currentPage);
+    _controller = AnimationController(vsync: this, duration: Duration(milliseconds: 200), value: 1.0);
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: PageView(
+      body: PageView.builder(
         physics: const NeverScrollableScrollPhysics(),
         controller: _pageController,
         onPageChanged: onPageChanged,
-        children: const <Widget>[
-          KeepAliveWrapper(child: HomePage()),
-          StatisticsPage(),
-          CoffeeBeansPage(),
-          KeepAliveWrapper(child: UserPage()),
-        ],
+        itemBuilder: (context, index) {
+          return ScaleTransition(
+            scale: Tween(begin: 0.8, end: 1.0).animate(CurvedAnimation(parent: _controller, curve: Curves.easeInOut)),
+            child: FadeTransition(opacity: CurvedAnimation(parent: _controller, curve: Curves.easeInOut), child: _pages[index]),
+          );
+        },
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
@@ -63,9 +68,10 @@ class _MainPageState extends State<MainPage> {
     _pageController!.dispose();
   }
 
-  void onPageChanged(int page) {
+  void onPageChanged(int page) async {
+    await _controller.forward(from: 0.0);
     setState(() {
-      currentPage = page;
+      _currentPage = page;
     });
   }
 
@@ -80,7 +86,7 @@ class _MainPageState extends State<MainPage> {
       return GFBottomNavigationTile(
         item.icon,
         item.label,
-        selected: currentPage == index,
+        selected: _currentPage == index,
         onTap: () {
           navigationTapped(index);
         },
