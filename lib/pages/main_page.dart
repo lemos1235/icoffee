@@ -15,9 +15,7 @@ class MainPage extends StatefulWidget {
   State<MainPage> createState() => _MainPageState();
 }
 
-class _MainPageState extends State<MainPage> with SingleTickerProviderStateMixin {
-  late AnimationController _controller;
-
+class _MainPageState extends State<MainPage> {
   PageController? _pageController;
 
   int _currentPage = 0;
@@ -27,7 +25,6 @@ class _MainPageState extends State<MainPage> with SingleTickerProviderStateMixin
   @override
   void initState() {
     _pageController = PageController(initialPage: _currentPage);
-    _controller = AnimationController(vsync: this, duration: Duration(milliseconds: 200), value: 1.0);
     super.initState();
   }
 
@@ -39,10 +36,7 @@ class _MainPageState extends State<MainPage> with SingleTickerProviderStateMixin
         controller: _pageController,
         onPageChanged: onPageChanged,
         itemBuilder: (context, index) {
-          return ScaleTransition(
-            scale: Tween(begin: 0.8, end: 1.0).animate(CurvedAnimation(parent: _controller, curve: Curves.easeInOut)),
-            child: FadeTransition(opacity: CurvedAnimation(parent: _controller, curve: Curves.easeInOut), child: _pages[index]),
-          );
+          return _pages[index];
         },
       ),
       floatingActionButton: FloatingActionButton(
@@ -69,7 +63,6 @@ class _MainPageState extends State<MainPage> with SingleTickerProviderStateMixin
   }
 
   void onPageChanged(int page) async {
-    await _controller.forward(from: 0.0);
     setState(() {
       _currentPage = page;
     });
