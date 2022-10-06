@@ -9,6 +9,7 @@ import 'package:icoffee/pages/beans/new_beans_page.dart';
 import 'package:icoffee/pages/login_page.dart';
 import 'package:icoffee/pages/main_page.dart';
 import 'package:icoffee/pages/splash.dart';
+import 'package:icoffee/pages/user/user_detail_page.dart';
 
 abstract class AppRoutes {
   static const splash = '/splash';
@@ -20,6 +21,8 @@ abstract class AppRoutes {
   static const newCoffeeBeans = '/newCoffeeBeans';
 
   static const beansDetail = '/beansDetail';
+
+  static const userDetail = '/userDetail';
 }
 
 final GoRouter appRouter = GoRouter(
@@ -49,6 +52,11 @@ final GoRouter appRouter = GoRouter(
       path: AppRoutes.beansDetail,
       name: AppRoutes.beansDetail,
       builder: (BuildContext context, GoRouterState state) => const BeanDetailPage(),
+    ),
+    GoRoute(
+      path: AppRoutes.userDetail,
+      name: AppRoutes.userDetail,
+      builder: (BuildContext context, GoRouterState state) => const UserDetailPage(),
     ),
   ],
 );

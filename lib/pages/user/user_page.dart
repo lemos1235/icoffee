@@ -4,6 +4,8 @@
 //
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:go_router/go_router.dart';
+import 'package:icoffee/app_routes.dart';
 import 'package:icoffee/constants/app_colors.dart';
 import 'package:icoffee/widgets/gf_action_tile.dart';
 
@@ -50,31 +52,37 @@ class _UserPageState extends State<UserPage> {
               ),
             ),
           ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                "匿名用户",
-                style: TextStyle(fontSize: 26, fontWeight: FontWeight.bold),
-              ),
-              SizedBox(height: 5),
-              Row(
-                children: [
-                  Text(
-                    "编辑个人信息",
-                    style: TextStyle(color: AppColors.deactivatedText),
-                  ),
-                  SizedBox(
-                    width: 3,
-                  ),
-                  Icon(
-                    Icons.arrow_forward_ios_rounded,
-                    size: 18,
-                    color: Colors.grey,
-                  )
-                ],
-              )
-            ],
+          GestureDetector(
+            behavior: HitTestBehavior.translucent,
+            onTap: () {
+              GoRouter.of(context).pushNamed(AppRoutes.userDetail);
+            },
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  "匿名用户",
+                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                ),
+                SizedBox(height: 5),
+                Row(
+                  children: [
+                    Text(
+                      "编辑个人信息",
+                      style: TextStyle(color: AppColors.deactivatedText),
+                    ),
+                    SizedBox(
+                      width: 3,
+                    ),
+                    Icon(
+                      Icons.arrow_forward_ios_rounded,
+                      size: 18,
+                      color: Colors.grey,
+                    )
+                  ],
+                )
+              ],
+            ),
           )
         ],
       ),
@@ -85,7 +93,7 @@ class _UserPageState extends State<UserPage> {
     return Column(
       children: [
         GFActionCard(
-          tiles: [
+          children: [
             GFActionTile(
               title: "我的会员",
               trailingText: "未开通",
@@ -105,7 +113,7 @@ class _UserPageState extends State<UserPage> {
     return Column(
       children: [
         GFActionCard(
-          tiles: [
+          children: [
             GFActionTile(
               title: "智能电子秤",
               onTap: () {},

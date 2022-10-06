@@ -56,6 +56,18 @@ class App extends StatelessWidget {
           Locale('en', 'US'),
           Locale('zh', 'CN'),
         ],
+        builder: (context, child) => Scaffold(
+          body: GestureDetector(
+            onTap: () {
+              FocusScopeNode currentFocus = FocusScope.of(context);
+              if (!currentFocus.hasPrimaryFocus &&
+                  currentFocus.focusedChild != null) {
+                FocusManager.instance.primaryFocus?.unfocus();
+              }
+            },
+            child: child,
+          ),
+        ),
       ),
     );
   }

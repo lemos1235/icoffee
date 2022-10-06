@@ -6,15 +6,15 @@ import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 
 class GFActionCard extends StatelessWidget {
-  const GFActionCard({super.key, required this.tiles});
+  const GFActionCard({super.key, required this.children});
 
-  final List<GFActionTile> tiles;
+  final List<Widget> children;
 
   @override
   Widget build(BuildContext context) {
     List<Widget> widgets = [];
-    tiles.forEachIndexed((index, element) {
-      if (index != 0 && index != tiles.length) {
+    children.forEachIndexed((index, element) {
+      if (index != 0 && index != children.length) {
         widgets.add(
           Divider(indent: 12, endIndent: 12, height: 1, color: Color(0xFFECECEC)),
         );
@@ -84,7 +84,7 @@ class GFActionTile extends StatelessWidget {
         maxLines: 1,
         overflow: TextOverflow.ellipsis,
         style: TextStyle(
-          fontSize: 17,
+          fontSize: 16,
         ),
       ),
     );
@@ -104,7 +104,11 @@ class GFActionTile extends StatelessWidget {
               trailingText ?? "",
               overflow: TextOverflow.ellipsis,
               style: TextStyle(
-                fontSize: 17,
+                fontSize: 16,
+              ),
+              strutStyle: StrutStyle(
+                height: 1,
+                leading: 0.5,
               ),
             ),
           ),
