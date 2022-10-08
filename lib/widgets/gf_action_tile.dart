@@ -2,32 +2,7 @@
 // [Author] lg (https://github.com/lemos1235)
 // [Date] 2022/10/4
 //
-import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
-
-class GFActionCard extends StatelessWidget {
-  const GFActionCard({super.key, required this.children});
-
-  final List<Widget> children;
-
-  @override
-  Widget build(BuildContext context) {
-    List<Widget> widgets = [];
-    children.forEachIndexed((index, element) {
-      if (index != 0 && index != children.length) {
-        widgets.add(
-          Divider(indent: 12, endIndent: 12, height: 1, color: Color(0xFFECECEC)),
-        );
-      }
-      widgets.add(element);
-    });
-    return Container(
-      child: Column(
-        children: widgets,
-      ),
-    );
-  }
-}
 
 class GFActionTile extends StatelessWidget {
   const GFActionTile({super.key, required this.title, this.onTap, this.trailingText});
@@ -53,7 +28,7 @@ class GFActionTile extends StatelessWidget {
   Widget _rowWidget(BuildContext context) {
     return Container(
       color: Colors.white,
-      padding: EdgeInsets.only(left: 18, right: 23, top: 18, bottom: 18),
+      padding: EdgeInsets.only(left: 20, right: 20, top: 14, bottom: 14),
       child: Row(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.center,

@@ -6,6 +6,7 @@ import 'package:bruno/bruno.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:icoffee/widgets/gf_action_tile.dart';
+import 'package:icoffee/widgets/gf_menu_card.dart';
 
 /// "我-编辑资料"页
 class UserDetailPage extends StatefulWidget {
@@ -65,7 +66,7 @@ class _UserDetailPageState extends State<UserDetailPage> {
                           ),
                         ),
                       ),
-                      GFActionCard(
+                      GFMenuCard(
                         children: [
                           BrnTextInputFormItem(
                             title: "昵称",

@@ -8,6 +8,7 @@ import 'package:go_router/go_router.dart';
 import 'package:icoffee/app_routes.dart';
 import 'package:icoffee/constants/app_colors.dart';
 import 'package:icoffee/widgets/gf_action_tile.dart';
+import 'package:icoffee/widgets/gf_menu_card.dart';
 
 /// "我"页
 class UserPage extends StatefulWidget {
@@ -92,7 +93,7 @@ class _UserPageState extends State<UserPage> {
   Widget _vipRow() {
     return Column(
       children: [
-        GFActionCard(
+        GFMenuCard(
           children: [
             GFActionTile(
               title: "我的会员",
@@ -112,7 +113,7 @@ class _UserPageState extends State<UserPage> {
   Widget _toolsRow() {
     return Column(
       children: [
-        GFActionCard(
+        GFMenuCard(
           children: [
             GFActionTile(
               title: "智能电子秤",
