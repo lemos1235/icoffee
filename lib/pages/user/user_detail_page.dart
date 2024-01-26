@@ -5,8 +5,8 @@
 import 'package:bruno/bruno.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:icoffee2/widgets/gf_action_tile.dart';
-import 'package:icoffee2/widgets/gf_menu_card.dart';
+import 'package:icoffee2/gf/gf_action_tile.dart';
+import 'package:icoffee2/gf/gf_menu_card.dart';
 
 /// "我-编辑资料"页
 class UserDetailPage extends StatefulWidget {

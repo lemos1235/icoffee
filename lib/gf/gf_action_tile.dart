@@ -28,7 +28,7 @@ class GFActionTile extends StatelessWidget {
   Widget _rowWidget(BuildContext context) {
     return Container(
       color: Colors.white,
-      padding: EdgeInsets.only(left: 20, right: 20, top: 14, bottom: 14),
+      padding: const EdgeInsets.only(left: 20, right: 20, top: 14, bottom: 14),
       child: Row(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -53,12 +53,12 @@ class GFActionTile extends StatelessWidget {
 
   Widget _titleWidget() {
     return Container(
-      padding: EdgeInsets.only(right: 8),
+      padding: const EdgeInsets.only(right: 8),
       child: Text(
         title,
         maxLines: 1,
         overflow: TextOverflow.ellipsis,
-        style: TextStyle(
+        style: const TextStyle(
           fontSize: 16,
         ),
       ),
@@ -74,21 +74,21 @@ class GFActionTile extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           Container(
-            constraints: BoxConstraints(maxWidth: 84),
+            constraints: const BoxConstraints(maxWidth: 84),
             child: Text(
               trailingText ?? "",
               overflow: TextOverflow.ellipsis,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 16,
               ),
-              strutStyle: StrutStyle(
+              strutStyle: const StrutStyle(
                 height: 1,
                 leading: 0.5,
               ),
             ),
           ),
           if (onTap != null) ...[
-            SizedBox(width: 5),
+            const SizedBox(width: 5),
             _arrowWidget(),
           ],
         ],
@@ -97,7 +97,7 @@ class GFActionTile extends StatelessWidget {
   }
 
   Widget _arrowWidget() {
-    return Icon(
+    return const Icon(
       Icons.arrow_forward_ios_rounded,
       size: 14,
       color: Color(0xFFC6C6C6),

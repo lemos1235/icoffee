@@ -2,8 +2,8 @@ import 'package:bruno/bruno.dart';
 import 'package:flutter/material.dart';
 import 'package:icoffee2/constants/app_colors.dart';
 import 'package:icoffee2/constants/constants.dart';
-import 'package:icoffee2/widgets/gf_card.dart';
-import 'package:icoffee2/widgets/gf_enhance_number_card.dart';
+import 'package:icoffee2/gf/gf_card.dart';
+import 'package:icoffee2/gf/gf_enhance_number_card.dart';
 
 /// 首页
 class HomePage extends StatefulWidget {
@@ -98,7 +98,7 @@ class _HomePageState extends State<HomePage> {
             onMore: () {
               print('more');
             },
-            title: Column(
+            title: const Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Text(
@@ -135,7 +135,7 @@ class _HomePageState extends State<HomePage> {
                     },
                   ),
                 ),
-                SizedBox(width: 10),
+                const SizedBox(width: 10),
                 Expanded(
                   child: BrnSmallOutlineButton(
                     title: '杯测',
@@ -150,7 +150,7 @@ class _HomePageState extends State<HomePage> {
           );
         },
         separatorBuilder: (context, index) {
-          return SizedBox(
+          return const SizedBox(
             height: 10,
           );
         },
@@ -160,7 +160,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget _emptyContent() {
-    return Center(
+    return const Center(
       child: Text("开始您的品咖之旅吧~"),
     );
   }

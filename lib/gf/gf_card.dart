@@ -42,7 +42,7 @@ class _GFCardState extends State<GFCard> with SingleTickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
-    _controller = AnimationController(vsync: this, duration: Duration(milliseconds: 100));
+    _controller = AnimationController(vsync: this, duration: const Duration(milliseconds: 100));
   }
 
   @override
@@ -83,7 +83,7 @@ class _GFCardState extends State<GFCard> with SingleTickerProviderStateMixin {
                       GestureDetector(
                         onTap: widget.onMore,
                         behavior: HitTestBehavior.translucent,
-                        child: Icon(Icons.more_vert, size: 22),
+                        child: const Icon(Icons.more_vert, size: 22),
                       ),
                   ],
                 ),

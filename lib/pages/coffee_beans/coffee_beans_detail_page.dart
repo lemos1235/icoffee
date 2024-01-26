@@ -4,16 +4,16 @@
 //
 import 'package:bruno/bruno.dart';
 import 'package:flutter/material.dart';
-import 'package:icoffee2/widgets/gf_enhance_number_card.dart';
+import 'package:icoffee2/gf/gf_enhance_number_card.dart';
 
-class BeanDetailPage extends StatefulWidget {
-  const BeanDetailPage({Key? key}) : super(key: key);
+class CoffeeBeansDetailPage extends StatefulWidget {
+  const CoffeeBeansDetailPage({Key? key}) : super(key: key);
 
   @override
-  State<BeanDetailPage> createState() => _BeanDetailPageState();
+  State<CoffeeBeansDetailPage> createState() => _CoffeeBeansDetailPageState();
 }
 
-class _BeanDetailPageState extends State<BeanDetailPage> {
+class _CoffeeBeansDetailPageState extends State<CoffeeBeansDetailPage> {
   bool isLoading = false;
 
   @override
@@ -24,7 +24,7 @@ class _BeanDetailPageState extends State<BeanDetailPage> {
 
   Future<void> getBeansDetail() async {
     isLoading = true;
-    Future.delayed(Duration(seconds: 1)).then((value) => {
+    Future.delayed(const Duration(seconds: 1)).then((value) => {
           setState(() {
             isLoading = false;
           })
@@ -39,7 +39,7 @@ class _BeanDetailPageState extends State<BeanDetailPage> {
         elevation: 0.1,
       ),
       body: isLoading
-          ? BrnPageLoading()
+          ? const BrnPageLoading()
           : ListView(
               children: [
                 GFEnhanceNumberCard(
@@ -67,7 +67,7 @@ class _BeanDetailPageState extends State<BeanDetailPage> {
                 BrnNormalFormGroup(
                   title: "基本信息",
                   children: [
-                    ListTile(
+                    const ListTile(
                       title: Text("品名"),
                       trailing: Text("带"),
                     ),

@@ -5,7 +5,7 @@ import 'package:icoffee2/pages/coffee_beans/coffee_beans_page.dart';
 import 'package:icoffee2/pages/home/home_page.dart';
 import 'package:icoffee2/pages/statistics/statistics_page.dart';
 import 'package:icoffee2/pages/user/user_page.dart';
-import 'package:icoffee2/widgets/gf_bottom_app_bar.dart';
+import 'package:icoffee2/gf/gf_bottom_app_bar.dart';
 
 /// 主页
 class MainPage extends StatefulWidget {
@@ -20,7 +20,7 @@ class _MainPageState extends State<MainPage> {
 
   int _currentPage = 0;
 
-  final List<Widget> _pages = [HomePage(), StatisticsPage(), coffee_beansPage(), UserPage()];
+  final List<Widget> _pages = [const HomePage(), const StatisticsPage(), const CoffeeBeansPage(), const UserPage()];
 
   @override
   void initState() {
@@ -70,10 +70,10 @@ class _MainPageState extends State<MainPage> {
 
   Widget _bottomAppBar() {
     List<GFBottomNavigationTileItem> items = [
-      GFBottomNavigationTileItem(Icon(Icons.home), "首页"),
-      GFBottomNavigationTileItem(Icon(Icons.auto_graph), "统计"),
-      GFBottomNavigationTileItem(Icon(Icons.inventory_2), "咖啡豆"),
-      GFBottomNavigationTileItem(Icon(Icons.account_circle), "我"),
+      GFBottomNavigationTileItem(const Icon(Icons.home), "首页"),
+      GFBottomNavigationTileItem(const Icon(Icons.auto_graph), "统计"),
+      GFBottomNavigationTileItem(const Icon(Icons.inventory_2), "咖啡豆"),
+      GFBottomNavigationTileItem(const Icon(Icons.account_circle), "我"),
     ];
     var tiles = items.mapIndexed((index, item) {
       return GFBottomNavigationTile(
@@ -90,7 +90,7 @@ class _MainPageState extends State<MainPage> {
       children: [
         tiles[0],
         tiles[1],
-        SizedBox(
+        const SizedBox(
           width: 70,
         ),
         tiles[2],

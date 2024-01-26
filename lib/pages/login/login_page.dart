@@ -32,9 +32,9 @@ class _LoginPageState extends State<LoginPage> {
                 color: Colors.black,
                 borderRadius: BorderRadius.circular(120),
               ),
-              child: Row(
+              child: const Row(
                 mainAxisSize: MainAxisSize.min,
-                children: const [
+                children: [
                   Icon(
                     Icons.apple,
                     color: Colors.white,

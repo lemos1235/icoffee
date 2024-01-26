@@ -5,14 +5,14 @@
 import 'package:bruno/bruno.dart';
 import 'package:flutter/material.dart';
 
-class Newcoffee_beansPage extends StatefulWidget {
-  const Newcoffee_beansPage({Key? key}) : super(key: key);
+class NewCoffeeBeansPage extends StatefulWidget {
+  const NewCoffeeBeansPage({Key? key}) : super(key: key);
 
   @override
-  State<Newcoffee_beansPage> createState() => _Newcoffee_beansPageState();
+  State<NewCoffeeBeansPage> createState() => _NewCoffeeBeansPageState();
 }
 
-class _Newcoffee_beansPageState extends State<Newcoffee_beansPage> {
+class _NewCoffeeBeansPageState extends State<NewCoffeeBeansPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,7 +42,7 @@ class _Newcoffee_beansPageState extends State<Newcoffee_beansPage> {
                       onChanged: (newValue) {
                       },
                     ),
-                    SizedBox(height: 8),
+                    const SizedBox(height: 8),
                     BrnMultiChoiceInputFormItem(
                       title: "类型",
                       options: ["单品", "拼配"],
@@ -72,7 +72,7 @@ class _Newcoffee_beansPageState extends State<Newcoffee_beansPage> {
                       },
                     ),
 
-                    SizedBox(height: 10),
+                    const SizedBox(height: 10),
                     BrnTextSelectFormItem(
                       title: "烘焙程度",
                       onTap: () {
@@ -95,7 +95,7 @@ class _Newcoffee_beansPageState extends State<Newcoffee_beansPage> {
                     ),
                   ],
                 ),
-                SizedBox(height: 15),
+                const SizedBox(height: 15),
                 BrnExpandFormGroup(
                   title: "环境信息",
                   isExpand: false,
@@ -145,7 +145,7 @@ class _Newcoffee_beansPageState extends State<Newcoffee_beansPage> {
                     ),
                   ],
                 ),
-                SizedBox(height: 15),
+                const SizedBox(height: 15),
                 BrnTextBlockInputFormItem(
                   title: "备注",
                   minLines: 1,

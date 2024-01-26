@@ -7,8 +7,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:icoffee2/app_routes.dart';
 import 'package:icoffee2/constants/app_colors.dart';
-import 'package:icoffee2/widgets/gf_action_tile.dart';
-import 'package:icoffee2/widgets/gf_menu_card.dart';
+import 'package:icoffee2/gf/gf_action_tile.dart';
+import 'package:icoffee2/gf/gf_menu_card.dart';
 
 /// "我"页
 class UserPage extends StatefulWidget {

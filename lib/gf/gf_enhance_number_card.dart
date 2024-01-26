@@ -72,7 +72,7 @@ class GFEnhanceNumberCard extends StatelessWidget {
 
   final BrnEnhanceNumberCardConfig? themeData;
 
-  GFEnhanceNumberCard({
+  const GFEnhanceNumberCard({
     Key? key,
     this.itemChildren,
     this.rowCount = 3,
@@ -97,14 +97,14 @@ class GFEnhanceNumberCard extends StatelessWidget {
         .merge(defaultConfig);
 
     if (itemChildren == null || itemChildren!.isEmpty) {
-      return Container(
+      return const SizedBox(
         height: 0,
         width: 0,
       );
     }
     return LayoutBuilder(
       builder: (context, constraints) {
-        Widget contentWidget = Container(
+        Widget contentWidget = const SizedBox(
           height: 0,
           width: 0,
         );
@@ -129,7 +129,7 @@ class GFEnhanceNumberCard extends StatelessWidget {
               bool allCondition = condition1 || condition2;
 
               bool isFirst = (itemChildren!.indexOf(data) + 1) % count == 1;
-              return Container(
+              return SizedBox(
                   width: singleWidth,
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
@@ -166,8 +166,8 @@ class GFEnhanceNumberCard extends StatelessWidget {
 
         return Container(
           padding: padding,
-          child: contentWidget,
           color: backgroundColor,
+          child: contentWidget,
         );
       },
     );
@@ -278,7 +278,7 @@ class GFEnhanceNumberCard extends StatelessWidget {
 
   Widget _getPreWidget(String? preDesc, BrnEnhanceNumberCardConfig config) {
     if (preDesc == null || preDesc.isEmpty) {
-      return Container(
+      return const SizedBox(
         height: 0,
         width: 0,
       );
@@ -300,7 +300,7 @@ class GFEnhanceNumberCard extends StatelessWidget {
 
   Widget _getLastWidget(String? lastDesc, BrnEnhanceNumberCardConfig config) {
     if (lastDesc == null || lastDesc.isEmpty) {
-      return Container(
+      return const SizedBox(
         height: 0,
         width: 0,
       );

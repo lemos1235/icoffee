@@ -5,7 +5,7 @@
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
-import 'package:icoffee2/widgets/gf_feedback.dart';
+import 'package:icoffee2/gf/gf_feedback.dart';
 
 class GFBottomAppBar extends StatefulWidget {
   const GFBottomAppBar({Key? key, required this.children}) : super(key: key);
@@ -35,6 +35,7 @@ class GFBottomNavigationTile extends StatelessWidget {
   const GFBottomNavigationTile(
     this.icon,
     this.label, {
+    super.key,
     this.selected = false,
     this.onTap,
     this.enableFeedback,
@@ -59,7 +60,7 @@ class GFBottomNavigationTile extends StatelessWidget {
       behavior: HitTestBehavior.translucent,
       onTap: (enableFeedback ?? false) ? GFFeedback.wrapForTap(onTap, context) : onTap,
       child: Padding(
-        padding: EdgeInsets.only(top: 9, bottom: 9),
+        padding: const EdgeInsets.only(top: 9, bottom: 9),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           mainAxisSize: MainAxisSize.min,
@@ -82,11 +83,10 @@ class GFBottomNavigationTile extends StatelessWidget {
               child: Align(
                 alignment: Alignment.bottomCenter,
                 heightFactor: 1.0,
-                child: Container(
-                    child: Text(
+                child: Text(
                   label,
                   style: TextStyle(fontSize: 10, color: currentColor),
-                )),
+                ),
               ),
             ),
           ],

@@ -20,12 +20,12 @@ class _StatisticsPageState extends State<StatisticsPage> {
       appBar: BrnAppBar(
         automaticallyImplyLeading: false,
         title: "统计",
-        actions: Icon(
+        actions: const Icon(
           Icons.sync_rounded,
           color: Color(0xFF616161),
         ),
       ),
-      body: Center(
+      body: const Center(
         child: Text("暂无数据"),
       ),
     );

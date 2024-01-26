@@ -46,12 +46,12 @@ final GoRouter appRouter = GoRouter(
     GoRoute(
       path: AppRoutes.newcoffee_beans,
       name: AppRoutes.newcoffee_beans,
-      builder: (BuildContext context, GoRouterState state) => const Newcoffee_beansPage(),
+      builder: (BuildContext context, GoRouterState state) => const NewCoffeeBeansPage(),
     ),
     GoRoute(
       path: AppRoutes.beansDetail,
       name: AppRoutes.beansDetail,
-      builder: (BuildContext context, GoRouterState state) => const BeanDetailPage(),
+      builder: (BuildContext context, GoRouterState state) => const CoffeeBeansDetailPage(),
     ),
     GoRoute(
       path: AppRoutes.userDetail,

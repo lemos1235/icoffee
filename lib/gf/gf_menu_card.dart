@@ -17,15 +17,13 @@ class GFMenuCard extends StatelessWidget {
       final item = children[i];
       if (i != 0 && i != len) {
         widgets.add(
-          Divider(indent: 12, endIndent: 12, height: 1, color: Color(0xFFECECEC)),
+          const Divider(indent: 12, endIndent: 12, height: 1, color: Color(0xFFECECEC)),
         );
       }
       widgets.add(item);
     }
-    return Container(
-      child: Column(
-        children: widgets,
-      ),
+    return Column(
+      children: widgets,
     );
   }
 }

@@ -7,19 +7,19 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:icoffee2/app_routes.dart';
 import 'package:icoffee2/constants/app_colors.dart';
-import 'package:icoffee2/widgets/gf_brn_rich_info_grid.dart';
-import 'package:icoffee2/widgets/gf_card.dart';
-import 'package:icoffee2/widgets/gf_enhance_number_card.dart';
+import 'package:icoffee2/gf/gf_brn_rich_info_grid.dart';
+import 'package:icoffee2/gf/gf_card.dart';
+import 'package:icoffee2/gf/gf_enhance_number_card.dart';
 
 /// 咖啡豆页
-class coffee_beansPage extends StatefulWidget {
-  const coffee_beansPage({Key? key}) : super(key: key);
+class CoffeeBeansPage extends StatefulWidget {
+  const CoffeeBeansPage({Key? key}) : super(key: key);
 
   @override
-  State<coffee_beansPage> createState() => _coffee_beansPageState();
+  State<CoffeeBeansPage> createState() => _CoffeeBeansPageState();
 }
 
-class _coffee_beansPageState extends State<coffee_beansPage> {
+class _CoffeeBeansPageState extends State<CoffeeBeansPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,7 +31,7 @@ class _coffee_beansPageState extends State<coffee_beansPage> {
           onTap: () {
             GoRouter.of(context).pushNamed(AppRoutes.newcoffee_beans);
           },
-          child: Icon(Icons.add, size: 24, color: AppColors.deactivatedText),
+          child: const Icon(Icons.add, size: 24, color: AppColors.deactivatedText),
         ),
       ),
       body: Column(
@@ -86,7 +86,7 @@ class _coffee_beansPageState extends State<coffee_beansPage> {
             onMore: () {
               print('more');
             },
-            title: Text(
+            title: const Text(
               "标题",
               style: TextStyle(
                 fontSize: 16,
@@ -107,7 +107,7 @@ class _coffee_beansPageState extends State<coffee_beansPage> {
           );
         },
         separatorBuilder: (context, index) {
-          return SizedBox(
+          return const SizedBox(
             height: 10,
           );
         },
