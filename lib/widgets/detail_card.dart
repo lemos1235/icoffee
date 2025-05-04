@@ -5,8 +5,8 @@
 import 'package:bruno/bruno.dart';
 import 'package:flutter/material.dart';
 
-class GFCard extends StatefulWidget {
-  const GFCard({
+class FDetailCard extends StatefulWidget {
+  const FDetailCard({
     Key? key,
     this.title,
     this.onPressed,
@@ -33,10 +33,10 @@ class GFCard extends StatefulWidget {
   final EdgeInsets bottomPadding;
 
   @override
-  State<GFCard> createState() => _GFCardState();
+  State<FDetailCard> createState() => _FDetailCardState();
 }
 
-class _GFCardState extends State<GFCard> with SingleTickerProviderStateMixin {
+class _FDetailCardState extends State<FDetailCard> with SingleTickerProviderStateMixin {
   late AnimationController _controller;
 
   @override

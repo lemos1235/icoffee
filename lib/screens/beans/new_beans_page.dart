@@ -5,14 +5,14 @@
 import 'package:bruno/bruno.dart';
 import 'package:flutter/material.dart';
 
-class NewCoffeeBeansPage extends StatefulWidget {
-  const NewCoffeeBeansPage({Key? key}) : super(key: key);
+class NewBeansPage extends StatefulWidget {
+  const NewBeansPage({Key? key}) : super(key: key);
 
   @override
-  State<NewCoffeeBeansPage> createState() => _NewCoffeeBeansPageState();
+  State<NewBeansPage> createState() => _NewBeansPageState();
 }
 
-class _NewCoffeeBeansPageState extends State<NewCoffeeBeansPage> {
+class _NewBeansPageState extends State<NewBeansPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,23 +32,19 @@ class _NewCoffeeBeansPageState extends State<NewCoffeeBeansPage> {
                     BrnTextInputFormItem(
                       title: "品名",
                       isRequire: true,
-                      onChanged: (newValue) {
-                      },
+                      onChanged: (newValue) {},
                     ),
                     BrnTextInputFormItem(
                       title: "净含量",
                       unit: "克",
                       isRequire: true,
-                      onChanged: (newValue) {
-                      },
+                      onChanged: (newValue) {},
                     ),
                     const SizedBox(height: 8),
                     BrnMultiChoiceInputFormItem(
                       title: "类型",
-                      options: ["单品", "拼配"],
-                      value: [
-                        "单品",
-                      ],
+                      options: const ["单品", "拼配"],
+                      value: const ["单品"],
                       tipLabel: "",
                       isRequire: false,
                       onTip: () {
@@ -71,7 +67,6 @@ class _NewCoffeeBeansPageState extends State<NewCoffeeBeansPage> {
                         BrnToast.show("点击触发回调_onTap", context);
                       },
                     ),
-
                     const SizedBox(height: 10),
                     BrnTextSelectFormItem(
                       title: "烘焙程度",
@@ -102,40 +97,33 @@ class _NewCoffeeBeansPageState extends State<NewCoffeeBeansPage> {
                   children: [
                     BrnTextInputFormItem(
                       title: "庄园/处理站",
-                      onChanged: (newValue) {
-                      },
+                      onChanged: (newValue) {},
                     ),
                     BrnTextInputFormItem(
                       title: "产季",
-                      onChanged: (newValue) {
-                      },
+                      onChanged: (newValue) {},
                     ),
                     BrnTextInputFormItem(
                       title: "批次",
-                      onChanged: (newValue) {
-                      },
+                      onChanged: (newValue) {},
                     ),
                     BrnTextInputFormItem(
                       title: "等级",
-                      onChanged: (newValue) {
-                      },
+                      onChanged: (newValue) {},
                     ),
                     BrnTextInputFormItem(
                       title: "海拔范围",
-                      onChanged: (newValue) {
-                      },
+                      onChanged: (newValue) {},
                     ),
                     BrnTextInputFormItem(
                       title: "密度",
                       unit: '克/升',
-                      onChanged: (newValue) {
-                      },
+                      onChanged: (newValue) {},
                     ),
                     BrnTextInputFormItem(
                       title: "含水率",
                       unit: '%',
-                      onChanged: (newValue) {
-                      },
+                      onChanged: (newValue) {},
                     ),
                     BrnTextSelectFormItem(
                       title: "土质",

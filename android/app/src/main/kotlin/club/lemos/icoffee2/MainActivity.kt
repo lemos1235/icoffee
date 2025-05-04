@@ -1,4 +1,4 @@
-package club.lemos.icoffee2
+package club.lemos.icoffee
 
 import io.flutter.embedding.android.FlutterActivity
 

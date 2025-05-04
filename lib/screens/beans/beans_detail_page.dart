@@ -4,16 +4,16 @@
 //
 import 'package:bruno/bruno.dart';
 import 'package:flutter/material.dart';
-import 'package:icoffee2/gf/gf_enhance_number_card.dart';
+import 'package:icoffee/widgets/enhance_number_card.dart';
 
-class CoffeeBeansDetailPage extends StatefulWidget {
-  const CoffeeBeansDetailPage({Key? key}) : super(key: key);
+class BeansDetailPage extends StatefulWidget {
+  const BeansDetailPage({Key? key}) : super(key: key);
 
   @override
-  State<CoffeeBeansDetailPage> createState() => _CoffeeBeansDetailPageState();
+  State<BeansDetailPage> createState() => _BeansDetailPageState();
 }
 
-class _CoffeeBeansDetailPageState extends State<CoffeeBeansDetailPage> {
+class _BeansDetailPageState extends State<BeansDetailPage> {
   bool isLoading = false;
 
   @override
@@ -42,21 +42,21 @@ class _CoffeeBeansDetailPageState extends State<CoffeeBeansDetailPage> {
           ? const BrnPageLoading()
           : ListView(
               children: [
-                GFEnhanceNumberCard(
+                FEnhanceNumberCard(
                   padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
                   rowCount: 4,
                   itemChildren: [
-                    GFNumberInfoItemModel(
+                    FNumberInfoItemModel(
                       number: '183',
                       lastDesc: "天",
                       title: '烘焙至今',
                     ),
-                    GFNumberInfoItemModel(
+                    FNumberInfoItemModel(
                       number: '0',
                       lastDesc: "克",
                       title: '剩余',
                     ),
-                    GFNumberInfoItemModel(
+                    FNumberInfoItemModel(
                       number: '2',
                       lastDesc: "次",
                       title: '总计饮用',

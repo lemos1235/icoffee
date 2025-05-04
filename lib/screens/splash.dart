@@ -4,8 +4,8 @@
 //
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:icoffee2/app_routes.dart';
-import 'package:icoffee2/constants/app_colors.dart';
+import 'package:icoffee/app_routes.dart';
+import 'package:icoffee/app_colors.dart';
 
 /// 闪屏页
 class SplashPage extends StatefulWidget {

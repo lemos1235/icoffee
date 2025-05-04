@@ -6,14 +6,14 @@ import 'package:bruno/bruno.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:icoffee2/app_routes.dart';
-import 'package:icoffee2/constants/app_colors.dart';
-import 'package:icoffee2/constants/constants.dart';
-import 'package:icoffee2/utils/app_theme_utils.dart';
+import 'package:icoffee/app_routes.dart';
+import 'package:icoffee/app_theme.dart';
+import 'package:icoffee/app_colors.dart';
+import 'package:icoffee/app_constants.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  BrnInitializer.register(allThemeConfig: AppThemeUtils.defaultAllConfig);
+  BrnInitializer.register(allThemeConfig: AppThemeUtils.theme);
   runApp(const App());
 }
 
@@ -23,14 +23,14 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AnnotatedRegion<SystemUiOverlayStyle>(
-        value: SystemUiOverlayStyle.dark.copyWith(
+      value: SystemUiOverlayStyle.dark.copyWith(
         statusBarColor: Colors.white,
       ),
       child: MaterialApp.router(
         routeInformationProvider: appRouter.routeInformationProvider,
         routeInformationParser: appRouter.routeInformationParser,
         routerDelegate: appRouter.routerDelegate,
-        title: Constants.appName,
+        title: AppConstants.appName,
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
           useMaterial3: false,
@@ -61,8 +61,7 @@ class App extends StatelessWidget {
           body: GestureDetector(
             onTap: () {
               FocusScopeNode currentFocus = FocusScope.of(context);
-              if (!currentFocus.hasPrimaryFocus &&
-                  currentFocus.focusedChild != null) {
+              if (!currentFocus.hasPrimaryFocus && currentFocus.focusedChild != null) {
                 FocusManager.instance.primaryFocus?.unfocus();
               }
             },

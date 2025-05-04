@@ -5,7 +5,7 @@
 import 'package:bruno/bruno.dart';
 import 'package:flutter/widgets.dart';
 
-class GFBrnRichInfoGrid extends StatelessWidget {
+class FRichInfoGrid extends StatelessWidget {
   final List<BrnRichGridInfo>? pairInfoList;
 
   ///行间距 纵向
@@ -28,7 +28,7 @@ class GFBrnRichInfoGrid extends StatelessWidget {
 
   final BrnPairRichInfoGridConfig? themeData;
 
-  GFBrnRichInfoGrid({
+  const FRichInfoGrid({
     Key? key,
     this.pairInfoList,
     this.padding,
@@ -43,21 +43,17 @@ class GFBrnRichInfoGrid extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (pairInfoList == null || pairInfoList!.isEmpty) {
-      return Container(
-        height: 0,
-        width: 0,
-      );
+      return const SizedBox(height: 0, width: 0);
     }
 
     return _buildGridView(context);
   }
 
   Widget _buildGridView(context) {
-    BrnPairRichInfoGridConfig defaultConfig =
-        themeData ?? BrnPairRichInfoGridConfig();
+    BrnPairRichInfoGridConfig defaultConfig = themeData ?? BrnPairRichInfoGridConfig();
 
-    defaultConfig = defaultConfig.merge(BrnPairRichInfoGridConfig(
-        itemSpacing: space, rowSpacing: rowSpace, itemHeight: itemHeight));
+    defaultConfig = defaultConfig
+        .merge(BrnPairRichInfoGridConfig(itemSpacing: space, rowSpacing: rowSpace, itemHeight: itemHeight));
     defaultConfig = BrnThemeConfigurator.instance
         .getConfig(configId: defaultConfig.configId)
         .pairRichInfoGridConfig
@@ -69,8 +65,7 @@ class GFBrnRichInfoGrid extends StatelessWidget {
         if (gridWidth == double.infinity) {
           gridWidth = MediaQuery.of(context).size.width;
         }
-        double itemHeight =
-            defaultConfig.itemHeight * (MediaQuery.textScaleFactorOf(context));
+        double itemHeight = defaultConfig.itemHeight * (MediaQuery.textScaleFactorOf(context));
         if (direction == Axis.vertical) {
           itemHeight = itemHeight * 2;
         }
@@ -79,7 +74,7 @@ class GFBrnRichInfoGrid extends StatelessWidget {
         var gridView = GridView.builder(
           shrinkWrap: true,
           padding: padding,
-          physics: NeverScrollableScrollPhysics(),
+          physics: const NeverScrollableScrollPhysics(),
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             mainAxisSpacing: defaultConfig.rowSpacing,
             crossAxisCount: crossAxisCount,
@@ -124,8 +119,8 @@ class GFBrnRichInfoGrid extends StatelessWidget {
     );
   }
 
-  Widget _getKeyWidget(BrnRichGridInfo info, double width, BuildContext context,
-      BrnPairRichInfoGridConfig config) {
+  Widget _getKeyWidget(
+      BrnRichGridInfo info, double width, BuildContext context, BrnPairRichInfoGridConfig config) {
     if (info.keyPart == null) {
       return Container(
         height: 0,
@@ -137,9 +132,7 @@ class GFBrnRichInfoGrid extends StatelessWidget {
       return Container(
         constraints: BoxConstraints(maxWidth: width / 4),
         child: Text(info.keyPart,
-            maxLines: 1,
-            overflow: TextOverflow.ellipsis,
-            style: _getKeyStyle(themeData: config)),
+            maxLines: 1, overflow: TextOverflow.ellipsis, style: _getKeyStyle(themeData: config)),
       );
     }
     if (info.keyPart is Widget) {
@@ -152,8 +145,7 @@ class GFBrnRichInfoGrid extends StatelessWidget {
     );
   }
 
-  Widget _getValueWidget(
-      BrnRichGridInfo info, BrnPairRichInfoGridConfig config) {
+  Widget _getValueWidget(BrnRichGridInfo info, BrnPairRichInfoGridConfig config) {
     if (info.valuePart == null) {
       return Text('--', style: _getValueStyle('--', themeData: config));
     }
@@ -180,6 +172,5 @@ class GFBrnRichInfoGrid extends StatelessWidget {
 TextStyle? _getKeyStyle({BrnPairRichInfoGridConfig? themeData}) =>
     themeData?.keyTextStyle.generateTextStyle();
 
-TextStyle? _getValueStyle(String content,
-        {BrnPairRichInfoGridConfig? themeData}) =>
+TextStyle? _getValueStyle(String content, {BrnPairRichInfoGridConfig? themeData}) =>
     themeData?.valueTextStyle.generateTextStyle();

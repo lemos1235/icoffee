@@ -5,8 +5,7 @@
 import 'package:bruno/bruno.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:icoffee2/gf/gf_action_tile.dart';
-import 'package:icoffee2/gf/gf_menu_card.dart';
+import 'package:icoffee/widgets/action_tile.dart';
 
 /// "我-编辑资料"页
 class UserDetailPage extends StatefulWidget {
@@ -42,7 +41,7 @@ class _UserDetailPageState extends State<UserDetailPage> {
         elevation: 0.1,
       ),
       body: isLoading
-          ? BrnPageLoading()
+          ? const BrnPageLoading()
           : Column(
               children: [
                 Expanded(
@@ -66,13 +65,13 @@ class _UserDetailPageState extends State<UserDetailPage> {
                           ),
                         ),
                       ),
-                      GFMenuCard(
+                      FActionTileGroup(
                         children: [
                           BrnTextInputFormItem(
                             title: "昵称",
                             hint: "请输入",
                           ),
-                          GFActionTile(
+                          FActionTile(
                             title: "性别",
                             trailingText: "保密",
                             onTap: () {

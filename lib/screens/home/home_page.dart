@@ -1,9 +1,13 @@
+//
+// [Author] lg (https://github.com/lemos1235)
+// [Date] 2022/8/29
+//
 import 'package:bruno/bruno.dart';
 import 'package:flutter/material.dart';
-import 'package:icoffee2/constants/app_colors.dart';
-import 'package:icoffee2/constants/constants.dart';
-import 'package:icoffee2/gf/gf_card.dart';
-import 'package:icoffee2/gf/gf_enhance_number_card.dart';
+import 'package:icoffee/app_colors.dart';
+import 'package:icoffee/app_constants.dart';
+import 'package:icoffee/widgets/detail_card.dart';
+import 'package:icoffee/widgets/enhance_number_card.dart';
 
 /// 首页
 class HomePage extends StatefulWidget {
@@ -15,13 +19,13 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   @override
-  Widget build(BuildContext context) { 
+  Widget build(BuildContext context) {
     return DefaultTabController(
       length: 2,
       child: Scaffold(
           appBar: BrnAppBar(
             automaticallyImplyLeading: false,
-            title: Constants.appName,
+            title: AppConstants.appName,
           ),
           body: Column(
             children: [
@@ -44,26 +48,26 @@ class _HomePageState extends State<HomePage> {
       child: Column(
         children: <Widget>[
           BrnLine(),
-          GFEnhanceNumberCard(
+          FEnhanceNumberCard(
             padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
             rowCount: 4,
             itemChildren: [
-              GFNumberInfoItemModel(
+              FNumberInfoItemModel(
                 number: '2',
                 lastDesc: "次",
                 title: '冲煮次数',
               ),
-              GFNumberInfoItemModel(
+              FNumberInfoItemModel(
                 number: '1',
                 lastDesc: "种",
                 title: '豆种',
               ),
-              GFNumberInfoItemModel(
+              FNumberInfoItemModel(
                 number: '30.0',
                 lastDesc: "克",
                 title: '剩余',
               ),
-              GFNumberInfoItemModel(
+              FNumberInfoItemModel(
                 number: '150',
                 lastDesc: "天",
                 title: '距上次使用',
@@ -91,7 +95,7 @@ class _HomePageState extends State<HomePage> {
       padding: const EdgeInsets.all(8.0),
       child: ListView.separated(
         itemBuilder: (context, index) {
-          return GFCard(
+          return FDetailCard(
             onPressed: () {
               print('2233');
             },

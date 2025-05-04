@@ -1,26 +1,30 @@
+//
+// [Author] lg (https://github.com/lemos1235)
+// [Date] 2022/8/22
+//
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:icoffee2/pages/coffee_beans/coffee_beans_page.dart';
-import 'package:icoffee2/pages/home/home_page.dart';
-import 'package:icoffee2/pages/statistics/statistics_page.dart';
-import 'package:icoffee2/pages/user/user_page.dart';
-import 'package:icoffee2/gf/gf_bottom_app_bar.dart';
+import 'package:icoffee/screens/beans/beans_page.dart';
+import 'package:icoffee/screens/home/home_page.dart';
+import 'package:icoffee/screens/statistics/statistics_page.dart';
+import 'package:icoffee/screens/user/user_page.dart';
+import 'package:icoffee/widgets/bottom_app_bar.dart';
 
 /// 主页
-class MainPage extends StatefulWidget {
-  const MainPage({Key? key}) : super(key: key);
+class MainScreen extends StatefulWidget {
+  const MainScreen({Key? key}) : super(key: key);
 
   @override
-  State<MainPage> createState() => _MainPageState();
+  State<MainScreen> createState() => _MainScreenState();
 }
 
-class _MainPageState extends State<MainPage> {
+class _MainScreenState extends State<MainScreen> {
   PageController? _pageController;
 
   int _currentPage = 0;
 
-  final List<Widget> _pages = [const HomePage(), const StatisticsPage(), const CoffeeBeansPage(), const UserPage()];
+  final List<Widget> _pages = [const HomePage(), const StatisticsPage(), const BeansPage(), const UserPage()];
 
   @override
   void initState() {
@@ -69,14 +73,14 @@ class _MainPageState extends State<MainPage> {
   }
 
   Widget _bottomAppBar() {
-    List<GFBottomNavigationTileItem> items = [
-      GFBottomNavigationTileItem(const Icon(Icons.home), "首页"),
-      GFBottomNavigationTileItem(const Icon(Icons.auto_graph), "统计"),
-      GFBottomNavigationTileItem(const Icon(Icons.inventory_2), "咖啡豆"),
-      GFBottomNavigationTileItem(const Icon(Icons.account_circle), "我"),
+    List<FBottomNavigationTileItem> items = [
+      FBottomNavigationTileItem(const Icon(Icons.home), "首页"),
+      FBottomNavigationTileItem(const Icon(Icons.auto_graph), "统计"),
+      FBottomNavigationTileItem(const Icon(Icons.inventory_2), "咖啡豆"),
+      FBottomNavigationTileItem(const Icon(Icons.account_circle), "我"),
     ];
     var tiles = items.mapIndexed((index, item) {
-      return GFBottomNavigationTile(
+      return FBottomNavigationTile(
         item.icon,
         item.label,
         selected: _currentPage == index,
@@ -86,7 +90,7 @@ class _MainPageState extends State<MainPage> {
         enableFeedback: true,
       );
     }).toList();
-    return GFBottomAppBar(
+    return FBottomAppBar(
       children: [
         tiles[0],
         tiles[1],

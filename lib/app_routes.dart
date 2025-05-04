@@ -4,12 +4,12 @@
 //
 import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
-import 'package:icoffee2/pages/coffee_beans/coffee_beans_detail_page.dart';
-import 'package:icoffee2/pages/coffee_beans/new_coffee_beans_page.dart';
-import 'package:icoffee2/pages/login/login_page.dart';
-import 'package:icoffee2/pages/main_page.dart';
-import 'package:icoffee2/pages/splash.dart';
-import 'package:icoffee2/pages/user/user_detail_page.dart';
+import 'package:icoffee/screens/beans/beans_detail_page.dart';
+import 'package:icoffee/screens/beans/new_beans_page.dart';
+import 'package:icoffee/screens/login/login_page.dart';
+import 'package:icoffee/screens/main_screen.dart';
+import 'package:icoffee/screens/splash.dart';
+import 'package:icoffee/screens/user/user_detail_page.dart';
 
 abstract class AppRoutes {
   static const splash = '/splash';
@@ -18,7 +18,7 @@ abstract class AppRoutes {
 
   static const login = '/login';
 
-  static const newcoffee_beans = '/newcoffee_beans';
+  static const beans = '/beans';
 
   static const beansDetail = '/beansDetail';
 
@@ -36,7 +36,7 @@ final GoRouter appRouter = GoRouter(
     GoRoute(
       path: AppRoutes.home,
       name: AppRoutes.home,
-      builder: (BuildContext context, GoRouterState state) => const MainPage(),
+      builder: (BuildContext context, GoRouterState state) => const MainScreen(),
     ),
     GoRoute(
       path: AppRoutes.login,
@@ -44,14 +44,14 @@ final GoRouter appRouter = GoRouter(
       builder: (BuildContext context, GoRouterState state) => const LoginPage(),
     ),
     GoRoute(
-      path: AppRoutes.newcoffee_beans,
-      name: AppRoutes.newcoffee_beans,
-      builder: (BuildContext context, GoRouterState state) => const NewCoffeeBeansPage(),
+      path: AppRoutes.beans,
+      name: AppRoutes.beans,
+      builder: (BuildContext context, GoRouterState state) => const NewBeansPage(),
     ),
     GoRoute(
       path: AppRoutes.beansDetail,
       name: AppRoutes.beansDetail,
-      builder: (BuildContext context, GoRouterState state) => const CoffeeBeansDetailPage(),
+      builder: (BuildContext context, GoRouterState state) => const BeansDetailPage(),
     ),
     GoRoute(
       path: AppRoutes.userDetail,

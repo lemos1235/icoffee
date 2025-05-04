@@ -5,18 +5,18 @@
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
-import 'package:icoffee2/gf/gf_feedback.dart';
+import 'package:icoffee/widgets/feedback.dart';
 
-class GFBottomAppBar extends StatefulWidget {
-  const GFBottomAppBar({Key? key, required this.children}) : super(key: key);
+class FBottomAppBar extends StatefulWidget {
+  const FBottomAppBar({Key? key, required this.children}) : super(key: key);
 
   final List<Widget> children;
 
   @override
-  State<GFBottomAppBar> createState() => _GFBottomAppBarState();
+  State<FBottomAppBar> createState() => _FBottomAppBarState();
 }
 
-class _GFBottomAppBarState extends State<GFBottomAppBar> {
+class _FBottomAppBarState extends State<FBottomAppBar> {
   @override
   Widget build(BuildContext context) {
     return BottomAppBar(
@@ -31,8 +31,8 @@ class _GFBottomAppBarState extends State<GFBottomAppBar> {
   }
 }
 
-class GFBottomNavigationTile extends StatelessWidget {
-  const GFBottomNavigationTile(
+class FBottomNavigationTile extends StatelessWidget {
+  const FBottomNavigationTile(
     this.icon,
     this.label, {
     super.key,
@@ -58,7 +58,7 @@ class GFBottomNavigationTile extends StatelessWidget {
     Color currentColor = selected ? themeData.colorScheme.primary : themeData.unselectedWidgetColor;
     Widget result = GestureDetector(
       behavior: HitTestBehavior.translucent,
-      onTap: (enableFeedback ?? false) ? GFFeedback.wrapForTap(onTap, context) : onTap,
+      onTap: (enableFeedback ?? false) ? FFeedback.wrapForTap(onTap, context) : onTap,
       child: Padding(
         padding: const EdgeInsets.only(top: 9, bottom: 9),
         child: Column(
@@ -97,9 +97,9 @@ class GFBottomNavigationTile extends StatelessWidget {
   }
 }
 
-class GFBottomNavigationTileItem {
+class FBottomNavigationTileItem {
   final Icon icon;
   final String label;
 
-  GFBottomNavigationTileItem(this.icon, this.label);
+  FBottomNavigationTileItem(this.icon, this.label);
 }

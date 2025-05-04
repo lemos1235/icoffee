@@ -4,8 +4,8 @@
 //
 import 'package:flutter/material.dart';
 
-class GFActionTile extends StatelessWidget {
-  const GFActionTile({super.key, required this.title, this.onTap, this.trailingText});
+class FActionTile extends StatelessWidget {
+  const FActionTile({super.key, required this.title, this.onTap, this.trailingText});
 
   final String title;
   final VoidCallback? onTap;
@@ -101,6 +101,30 @@ class GFActionTile extends StatelessWidget {
       Icons.arrow_forward_ios_rounded,
       size: 14,
       color: Color(0xFFC6C6C6),
+    );
+  }
+}
+
+class FActionTileGroup extends StatelessWidget {
+  const FActionTileGroup({super.key, required this.children});
+
+  final List<Widget> children;
+
+  @override
+  Widget build(BuildContext context) {
+    List<Widget> widgets = [];
+    var len = children.length;
+    for (int i = 0; i < len; i++) {
+      final item = children[i];
+      if (i != 0 && i != len) {
+        widgets.add(
+          const Divider(indent: 12, endIndent: 12, height: 1, color: Color(0xFFECECEC)),
+        );
+      }
+      widgets.add(item);
+    }
+    return Column(
+      children: widgets,
     );
   }
 }

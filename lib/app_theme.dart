@@ -5,11 +5,11 @@
 import 'package:bruno/bruno.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:icoffee2/constants/app_colors.dart';
+import 'package:icoffee/app_colors.dart';
 
 /// bruno 主题配置
 class AppThemeUtils {
-  static BrnAllThemeConfig defaultAllConfig = BrnAllThemeConfig(
+  static BrnAllThemeConfig theme = BrnAllThemeConfig(
     commonConfig: defaultCommonConfig,
     dialogConfig: defaultDialogConfig,
     appBarConfig: defaultAppBarConfig,
@@ -25,8 +25,8 @@ class AppThemeUtils {
   );
 
   static BrnAppBarConfig defaultAppBarConfig = BrnAppBarConfig(
-      systemUiOverlayStyle:  SystemUiOverlayStyle.dark.copyWith(
-        statusBarColor: Colors.white,
-      ),
+    systemUiOverlayStyle: SystemUiOverlayStyle.dark.copyWith(
+      statusBarColor: Colors.white,
+    ),
   );
 }

@@ -1,3 +1,3 @@
-# icoffee2
+# icoffee
 
-Enjoy coffee
+Enjoy coffee!

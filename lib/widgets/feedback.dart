@@ -6,10 +6,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 
-class GFFeedback {
+class FFeedback {
   // This class is not meant to be instantiated or extended; this constructor
   // prevents instantiation and extension.
-  GFFeedback._();
+  FFeedback._();
 
   /// Provides platform-specific feedback for a tap.
   ///
@@ -47,7 +47,7 @@ class GFFeedback {
   static GestureTapCallback? wrapForTap(GestureTapCallback? callback, BuildContext context) {
     if (callback == null) return null;
     return () {
-      GFFeedback.forTap(context);
+      FFeedback.forTap(context);
       callback();
     };
   }

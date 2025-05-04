@@ -5,21 +5,21 @@
 import 'package:bruno/bruno.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:icoffee2/app_routes.dart';
-import 'package:icoffee2/constants/app_colors.dart';
-import 'package:icoffee2/gf/gf_brn_rich_info_grid.dart';
-import 'package:icoffee2/gf/gf_card.dart';
-import 'package:icoffee2/gf/gf_enhance_number_card.dart';
+import 'package:icoffee/app_colors.dart';
+import 'package:icoffee/app_routes.dart';
+import 'package:icoffee/widgets/detail_card.dart';
+import 'package:icoffee/widgets/enhance_number_card.dart';
+import 'package:icoffee/widgets/rich_info_grid.dart';
 
 /// 咖啡豆页
-class CoffeeBeansPage extends StatefulWidget {
-  const CoffeeBeansPage({Key? key}) : super(key: key);
+class BeansPage extends StatefulWidget {
+  const BeansPage({Key? key}) : super(key: key);
 
   @override
-  State<CoffeeBeansPage> createState() => _CoffeeBeansPageState();
+  State<BeansPage> createState() => _BeansPageState();
 }
 
-class _CoffeeBeansPageState extends State<CoffeeBeansPage> {
+class _BeansPageState extends State<BeansPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,7 +29,7 @@ class _CoffeeBeansPageState extends State<CoffeeBeansPage> {
         actions: GestureDetector(
           behavior: HitTestBehavior.translucent,
           onTap: () {
-            GoRouter.of(context).pushNamed(AppRoutes.newcoffee_beans);
+            GoRouter.of(context).pushNamed(AppRoutes.beans);
           },
           child: const Icon(Icons.add, size: 24, color: AppColors.deactivatedText),
         ),
@@ -48,21 +48,21 @@ class _CoffeeBeansPageState extends State<CoffeeBeansPage> {
       child: Column(
         children: <Widget>[
           BrnLine(),
-          GFEnhanceNumberCard(
+          FEnhanceNumberCard(
             padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
             rowCount: 4,
             itemChildren: [
-              GFNumberInfoItemModel(
+              FNumberInfoItemModel(
                 number: '1',
                 lastDesc: "种",
                 title: '豆种',
               ),
-              GFNumberInfoItemModel(
+              FNumberInfoItemModel(
                 number: '0',
                 lastDesc: "元",
                 title: '总价值',
               ),
-              GFNumberInfoItemModel(
+              FNumberInfoItemModel(
                 number: '30.0',
                 lastDesc: "克",
                 title: '剩余',
@@ -79,7 +79,7 @@ class _CoffeeBeansPageState extends State<CoffeeBeansPage> {
       padding: const EdgeInsets.all(8.0),
       child: ListView.separated(
         itemBuilder: (context, index) {
-          return GFCard(
+          return FDetailCard(
             onPressed: () {
               GoRouter.of(context).pushNamed(AppRoutes.beansDetail);
             },
@@ -93,7 +93,7 @@ class _CoffeeBeansPageState extends State<CoffeeBeansPage> {
                 fontWeight: FontWeight.bold,
               ),
             ),
-            content: GFBrnRichInfoGrid(
+            content: FRichInfoGrid(
               direction: Axis.vertical,
               pairInfoList: [
                 BrnRichGridInfo('烘焙程度', '--'),

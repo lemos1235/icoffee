@@ -5,10 +5,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
-import 'package:icoffee2/app_routes.dart';
-import 'package:icoffee2/constants/app_colors.dart';
-import 'package:icoffee2/gf/gf_action_tile.dart';
-import 'package:icoffee2/gf/gf_menu_card.dart';
+import 'package:icoffee/app_colors.dart';
+import 'package:icoffee/app_routes.dart';
+import 'package:icoffee/widgets/action_tile.dart';
 
 /// "我"页
 class UserPage extends StatefulWidget {
@@ -58,7 +57,7 @@ class _UserPageState extends State<UserPage> {
             onTap: () {
               GoRouter.of(context).pushNamed(AppRoutes.userDetail);
             },
-            child: Column(
+            child: const Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
@@ -93,14 +92,14 @@ class _UserPageState extends State<UserPage> {
   Widget _vipRow() {
     return Column(
       children: [
-        GFMenuCard(
+        FActionTileGroup(
           children: [
-            GFActionTile(
+            FActionTile(
               title: "我的会员",
               trailingText: "未开通",
               onTap: () {},
             ),
-            GFActionTile(
+            FActionTile(
               title: "帮助与反馈",
               onTap: () {},
             ),
@@ -113,17 +112,17 @@ class _UserPageState extends State<UserPage> {
   Widget _toolsRow() {
     return Column(
       children: [
-        GFMenuCard(
+        FActionTileGroup(
           children: [
-            GFActionTile(
+            FActionTile(
               title: "智能电子秤",
               onTap: () {},
             ),
-            GFActionTile(
+            FActionTile(
               title: "金杯萃取计算器",
               onTap: () {},
             ),
-            GFActionTile(
+            FActionTile(
               title: "扫一扫",
               onTap: () {},
             ),

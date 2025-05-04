@@ -1,3 +1,7 @@
+//
+// [Author] lg (https://github.com/lemos1235)
+// [Date] 2022/8/29
+//
 import 'package:flutter/material.dart';
 
 /// 登录页
@@ -25,8 +29,7 @@ class _LoginPageState extends State<LoginPage> {
           behavior: HitTestBehavior.translucent,
           child: Container(
               alignment: Alignment.center,
-              margin:
-                  EdgeInsets.symmetric(horizontal: mediaQuery.size.width * 0.1),
+              margin: EdgeInsets.symmetric(horizontal: mediaQuery.size.width * 0.1),
               height: 50,
               decoration: BoxDecoration(
                 color: Colors.black,
