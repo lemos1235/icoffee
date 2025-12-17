@@ -1,0 +1,104 @@
+version: 2.1
+
+orbs:
+  flutter: circleci/flutter@2.0.4
+
+jobs:
+  build-android:
+    docker:
+      - image: cimg/android:2024.01
+    working_directory: ~/project
+    steps:
+      - checkout
+      
+      - flutter/install_sdk:
+          version: 3.16.7
+
+      - restore_cache:
+          key: flutter-pub-{{ checksum "pubspec.lock" }}
+
+      - run:
+          name: Flutter pub get
+          command: flutter pub get
+
+      - save_cache:
+          paths:
+            - ~/.pub-cache
+          key: flutter-pub-{{ checksum "pubspec.lock" }}
+
+      - restore_cache:
+          key: android-gradle-{{ checksum "android/build.gradle" }}-{{ checksum  "android/app/build.gradle" }}
+
+      - run:
+          name: Build Android AppBundle
+          no_output_timeout: 30m
+          command: |
+            flutter build appbundle \
+              --release \
+              --dart-define FLAVOR=production \
+              --verbose
+
+      - save_cache:
+          paths:
+            - ~/.gradle
+          key: android-gradle-{{ checksum "android/build.gradle" }}-{{ checksum  "android/app/build.gradle" }}
+
+      - store_artifacts:
+          path: build/app/outputs/bundle/release/app-release.aab
+          destination: android/app-release.aab
+
+  build-ios:
+    macos:
+      xcode: "16.2"
+    working_directory: ~/project
+    steps:
+      - checkout
+
+      - run:
+          name: Install Rosetta
+          command: |
+            sudo softwareupdate --install-rosetta --agree-to-license || true
+
+      - flutter/install_sdk:
+          version: 3.16.7
+
+      - restore_cache:
+          key: flutter-pub-{{ checksum "pubspec.lock" }}
+      
+      - run:
+          name: Flutter pub get
+          command: flutter pub get
+
+      - restore_cache:
+          key: ios-pods-{{ checksum "ios/Podfile.lock" }}
+
+      - run:
+          name: Install CocoaPods dependencies
+          command: |
+            cd ios
+            pod install
+            cd ..
+
+      - save_cache:
+          paths:
+            - ios/Pods
+          key: ios-pods-{{ checksum "ios/Podfile.lock" }}
+
+      - run:
+          name: Build iOS IPA (No Codesign for AltStore)
+          no_output_timeout: 30m
+          command: |
+            flutter build ios --release --no-codesign
+            mkdir Payload
+            mv build/ios/iphoneos/Runner.app Payload/
+            zip -r release.ipa Payload
+
+      - store_artifacts:
+          path: release.ipa
+          destination: release.ipa
+
+workflows:
+  build_all:
+    jobs:
+      # - build-android
+      - build-ios
